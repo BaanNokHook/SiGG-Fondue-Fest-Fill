@@ -12,28 +12,27 @@ import { ItemDataService } from 'src/app/services/item-data.service';
   templateUrl: './add-or-edit-items.component.html',
   styleUrls: ['./add-or-edit-items.component.css'],
 })
-
 export class AddOrEditItemsComponent implements OnInit {
-   addOrEditItemsForm: FormGroup;  
-   selectedPath: string;  
+  addOrEditItemsForm: FormGroup;
+  selectedPath: string;
 
-   selectedFile: FileList = null;  
-   file: File | null;  
-   uploadPercentage = -1;   
-   imageUrl: string;  
-   itemId: string;    
-   itemCategory: string;  
+  selectedFile: FileList = null;
+  file: File | null;
+  uploadPercentage = -1;
+  imageUrl: string;
+  itemId: string;
+  itemCategory: string;
 
-   isAdd: boolean = false;  
-   isEdit: boolean = false;  
-   isUploaded: boolean = false;  
-   isUploading: boolean = false;   
-   isImage: boolean = false;   
-   isSubmitted: boolean = false;   
-   fileSizeExceeded: boolean = false;   
-   showDeleteBtn: boolean = false;   
+  isAdd: boolean = false;
+  isEdit: boolean = false;
+  isUploaded: boolean = false;
+  isUploading: boolean = false;
+  isImage: boolean = false;
+  isSubmitted: boolean = false;
+  fileSizeExceeded: boolean = false;
+  showDeleteBtn: boolean = false;
 
-   onSuccessText: string = '';
+  onSuccessText: string = '';
   submitBtnText: string;
   addAnotherItemBtnText: string;
   unknownErrorText: string = '';
@@ -432,4 +431,3 @@ export class AddOrEditItemsComponent implements OnInit {
     return v;
   }
 }
-  

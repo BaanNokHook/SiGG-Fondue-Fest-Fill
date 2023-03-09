@@ -10,7 +10,6 @@ import { UserDataService } from 'src/app/services/user-data.service';
   templateUrl: './manage-orders.component.html',
   styleUrls: ['./manage-orders.component.css'],
 })
-
 export class ManageOrdersComponent implements OnInit {
   usersData: any;
   usersDataArray: any[] = [];

@@ -10,43 +10,43 @@ import { OrderDataService } from 'src/app/services/order-data.service';
   styleUrls: ['./display-orders.component.css'],
 })
 export class DisplayOrdersComponent implements OnInit {
-  orders: any;   
-  orderArray: any = []   
-  isLoading: boolean = true;  
-  isLoaded: boolean = false;  
-  userName: string;   
-  uid: string;   
+  orders: any;
+  orderArray: any = [];
+  isLoading: boolean = true;
+  isLoaded: boolean = false;
+  userName: string;
+  uid: string;
 
   constructor(
-    private orderDataService: OrderDataService,   
+    private orderDataService: OrderDataService,
     private route: ActivatedRoute
   ) {
-    this.userName = this.route.snapshot.queryParams['name']   
-    this.uid = this.route.snapshot.params['uid'];   
+    this.userName = this.route.snapshot.queryParams['name']
+    this.uid = this.route.snapshot.params['uid'];    
   }
 
   ngOnInit(): void {
-     this.fetchOrderData();   
+    this.fetchOrderData();
   }
 
   async fetchOrderData() {
-     this.isLoaded = false;  
-     this.isLoading = true;  
+    this.isLoaded = false;
+    this.isLoading = true;
 
-     this.orders = await this.orderDataService.getOrderDataById(
-       this.uid 
-     );
+    this.orders = await this.orderDataService.getOrderDataById(
+      this.uid
+    );
 
-     let count = 0;
-     for (let orderId in this.orders) {
-        count++;   
+    let count = 0;
+    for (let orderId in this.orders) {
+      count++;
 
-        const orderObj: Order = this.orders[orderId];  
-        const oia = [];  
+      const orderObj: Order = this.orders[orderId];
+      const oia = [];
 
-        for (let oi in orderObj.orderedItems) {
-         const o = {
-          name: orderObj.orderedItems[oi].name,  
+      for (let oi in orderObj.orderedItems) {
+        const o = {
+          name: orderObj.orderedItems[oi].name,
           price: orderObj.orderedItems[oi].price,
           quantity: orderObj.orderedItems[oi].quantity,
         };
